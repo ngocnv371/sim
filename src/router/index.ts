@@ -2,6 +2,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 
 import Battle from "../views/Battle.vue";
 import Home from "../views/Home.vue";
+import Tavern from "../views/Tavern.vue";
 import Vue from "vue";
 
 Vue.use(VueRouter);
@@ -16,6 +17,11 @@ const routes: Array<RouteConfig> = [
     path: "/battle",
     name: "Battle",
     component: Battle,
+  },
+  {
+    path: "/tavern",
+    name: "Tavern",
+    component: Tavern,
   },
   {
     path: "/about",

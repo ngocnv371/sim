@@ -1,15 +1,15 @@
 export interface Character {
-	id: string;
-	name: string;
-	faction: string;
+  id: string;
+  name: string;
+  faction: string;
 
-	life: number;
-	maxLife: number;
+  life: number;
+  maxLife: number;
 
-	mana: number;
-	maxMana: number;
+  mana: number;
+  maxMana: number;
 
-	str: number;
-	int: number;
-	dex: number;
+  str: number;
+  int: number;
+  dex: number;
 }

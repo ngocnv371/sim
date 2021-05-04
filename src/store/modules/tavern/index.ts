@@ -25,6 +25,6 @@ export const TavernModule: Module<TavernState, RootState> = {
     },
     hire(context, one) {
       context.commit("REMOVE", one);
-    }
+    },
   },
 };

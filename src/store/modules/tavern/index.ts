@@ -7,6 +7,11 @@ import { TavernState } from "@/core/tavern";
 export const TavernModule: Module<TavernState, RootState> = {
   namespaced: true,
   state: { adventurers: [] },
+  getters: {
+    adventurers(state) {
+      return state.adventurers;
+    },
+  },
   mutations: {
     SET_ADVENTURERS(state, adventurers) {
       state.adventurers = adventurers;

@@ -6,3 +6,4 @@
 export const BASE_ATTACK_COOLDOWN = 1000;
 export const FACTION_PLAYER = "player";
 export const FACTION_MONSTER = "monster";
+export const FACTION_NONE = "none";

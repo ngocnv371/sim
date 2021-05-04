@@ -3,7 +3,7 @@
     <v-main>
       <router-view />
     </v-main>
-    <v-bottom-navigation v-model="value">
+    <v-bottom-navigation v-model="value" fixed>
       <v-btn value="home" to="/">
         <span>Home</span>
 
@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import { mapActions } from "vuex";
 import Vue from "vue";
 
 export default Vue.extend({
@@ -34,5 +35,13 @@ export default Vue.extend({
   data: () => ({
     value: "recent",
   }),
+
+  methods: {
+    ...mapActions(["init"]),
+  },
+
+  mounted() {
+    this.init();
+  },
 });
 </script>

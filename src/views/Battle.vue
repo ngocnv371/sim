@@ -112,7 +112,7 @@ export default {
     ...mapGetters("battle", ["over", "playerParty", "monsterParty"]),
   },
   methods: {
-    ...mapActions("battle", ["start", "end"]),
+    ...mapActions("battle", ["start", "stop"]),
     startGame() {
       this.start(combatants);
     },

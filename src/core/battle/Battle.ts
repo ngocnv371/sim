@@ -63,6 +63,7 @@ function getWeakiestEnemy(state: BattleState, combatant: Combatant) {
 export function end(state: BattleState) {
   console.log("battle ends");
   state.over = true;
+  clearInterval(state.timerHandle);
 }
 
 export function update(state: BattleState, delta: number) {

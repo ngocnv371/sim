@@ -3,7 +3,7 @@
     <v-card-title v-text="party.name"></v-card-title>
     <v-container>
       <v-row>
-        <v-col cols="3" v-for="index of 8" :key="index">
+        <v-col cols="3" v-for="index of 8" :key="index" class="pa-1">
           <AdventurerPicker v-model="members[index - 1]" :adventurers="unassigned" />
         </v-col>
       </v-row>

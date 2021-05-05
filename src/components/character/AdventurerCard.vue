@@ -12,7 +12,7 @@
     <v-card-actions>
       <v-btn text color="teal accent-4" @click="reveal = true"> Learn More </v-btn>
       <v-spacer />
-      <v-btn text color="primary accent-4"> Hire $50 </v-btn>
+      <slot></slot>
     </v-card-actions>
 
     <v-expand-transition>

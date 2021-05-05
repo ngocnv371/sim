@@ -4,12 +4,12 @@ import { TavernState } from "./TavernState";
 import faker from "faker";
 
 export function refresh(state: TavernState) {
-	const ones = attractAdventurers(state);
-	state.adventurers = ones;
+  const ones = attractAdventurers(state);
+  state.adventurers = ones;
 }
 
 export function removeOne(state: TavernState, one: Character) {
-	state.adventurers = state.adventurers.filter(a => a.id != one.id)
+  state.adventurers = state.adventurers.filter((a) => a.id != one.id);
 }
 
 export function attractAdventurers(state: TavernState): Character[] {
@@ -18,7 +18,7 @@ export function attractAdventurers(state: TavernState): Character[] {
   for (let index = 0; index < num; index++) {
     const maxLife = faker.datatype.number({ min: 100, max: 200 });
     const maxMana = faker.datatype.number({ min: 100, max: 200 });
-	const id = faker.random.alphaNumeric(10);
+    const id = faker.random.alphaNumeric(10);
     const one: Character = {
       id,
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,

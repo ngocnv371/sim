@@ -12,12 +12,17 @@
   </v-item-group>
 </template>
 
-<script>
+<script lang="ts">
 import AdventurerCard from "@/components/character/AdventurerCard.vue";
 import { mapGetters } from "vuex";
+import { Character } from "@/core/character/Character";
+
+interface Data {
+  selectedItem: Character | null;
+}
 export default {
   components: { AdventurerCard },
-  data() {
+  data(): Data {
     return {
       selectedItem: null,
     };

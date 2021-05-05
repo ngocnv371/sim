@@ -26,6 +26,10 @@
 import AdventurerThumbnail from "@/components/character/AdventurerThumbnail.vue";
 import { Character } from "@/core/character/Character";
 
+interface Data {
+  localValue: Character | null;
+  selectedValue: Character | null;
+}
 export default {
   components: {
     AdventurerThumbnail,
@@ -40,7 +44,7 @@ export default {
       required: true,
     },
   },
-  data() {
+  data(): Data {
     return {
       localValue: this.value,
       selectedValue: null,

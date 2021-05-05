@@ -40,7 +40,6 @@
 
 <script lang="ts">
 import { mapActions, mapGetters } from "vuex";
-import Vue from "vue";
 import Combatant from "@/components/battle/Combatant.vue";
 
 const combatants = [
@@ -113,7 +112,7 @@ export default {
   },
   methods: {
     ...mapActions("battle", ["start", "stop"]),
-    startGame() {
+    startGame(): void {
       this.start(combatants);
     },
   },

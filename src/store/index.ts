@@ -11,7 +11,7 @@ export default new Vuex.Store({
   actions: {
     init(context) {
       context.dispatch("tavern/init");
-    }
+    },
   },
   modules: {
     battle: BattleModule,

@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     max: {
@@ -22,14 +22,14 @@ export default {
     color: {
       type: String,
       default: "info",
-      validator(v) {
+      validator(v: string): boolean {
         const valid = ["info", "danger", "success"];
         return valid.includes(v);
       },
     },
   },
   computed: {
-    percentage() {
+    percentage(): number {
       return Math.floor((this.value / this.max) * 100);
     },
   },

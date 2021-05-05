@@ -21,6 +21,12 @@
 
         <v-icon>mdi-beer</v-icon>
       </v-btn>
+
+      <v-btn value="barrack" to="/barrack">
+        <span>Barrack</span>
+
+        <v-icon>mdi-bed</v-icon>
+      </v-btn>
     </v-bottom-navigation>
   </v-app>
 </template>

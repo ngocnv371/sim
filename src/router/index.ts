@@ -1,5 +1,6 @@
 import VueRouter, { RouteConfig } from "vue-router";
 
+import Barrack from "../views/Barrack.vue";
 import Battle from "../views/Battle.vue";
 import Home from "../views/Home.vue";
 import Tavern from "../views/Tavern.vue";
@@ -22,6 +23,11 @@ const routes: Array<RouteConfig> = [
     path: "/tavern",
     name: "Tavern",
     component: Tavern,
+  },
+  {
+    path: "/barrack",
+    name: "Barrack",
+    component: Barrack,
   },
   {
     path: "/about",

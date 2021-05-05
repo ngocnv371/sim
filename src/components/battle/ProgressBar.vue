@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+
 export default {
   props: {
     max: {

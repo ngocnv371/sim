@@ -1,38 +1,61 @@
 <template>
-  <v-dialog v-on="$listeners" v-bind="$attrs">
-    <template v-slot:activator="{ on, attrs }">
-      <v-img height="100" :src="adventurer.avatar" dark v-bind="attrs" v-on="on">
-        <v-card-title v-text="adventurer.class"></v-card-title>
-      </v-img>
-    </template>
-    <v-card>
-      <v-card-title class="headline grey lighten-2">
-        {{ adventurer.name }}
-      </v-card-title>
-      <v-card-text>
-        <div>{{ adventurer.class }} Lv{{ adventurer.level }}</div>
-        <ul>
-          <li>Strength: {{ adventurer.str }}</li>
-          <li>Dexterity: {{ adventurer.dex }}</li>
-          <li>Intelligence: {{ adventurer.int }}</li>
-        </ul>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" text> Hire $50</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <v-card>
+    <v-card-text>
+      <div v-text="`${adventurer.class} Lv${adventurer.level}`"></div>
+      <p class="display-1 text--primary" v-text="adventurer.name"></p>
+      <ul>
+        <li>Strength: {{ adventurer.str }}</li>
+        <li>Dexterity: {{ adventurer.dex }}</li>
+        <li>Intelligence: {{ adventurer.int }}</li>
+      </ul>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn text color="teal accent-4" @click="reveal = true"> Learn More </v-btn>
+      <v-spacer />
+      <v-btn text color="primary accent-4"> Hire $50 </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <v-card v-if="reveal" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%">
+        <v-card-text class="pb-0">
+          <p class="display-1 text--primary">Origin</p>
+          <p>
+            late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin
+            eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’
+          </p>
+        </v-card-text>
+        <v-card-actions class="pt-0">
+          <v-btn text color="teal accent-4" @click="reveal = false"> Close </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-expand-transition>
+  </v-card>
 </template>
 
-<script>
+<style>
+.v-card--reveal {
+  bottom: 0;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
+}
+</style>
+
+<script lang="ts">
+interface Data {
+  reveal: boolean;
+}
 export default {
   props: {
     adventurer: {
       type: Object,
       required: true,
     },
+  },
+  data(): Data {
+    return {
+      reveal: false,
+    };
   },
 };
 </script>

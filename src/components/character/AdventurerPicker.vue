@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-on="$listeners" v-bind="$attrs">
+  <v-dialog fullscreen v-model="dialog">
     <template v-slot:activator="{ on, attrs }">
       <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
         <v-icon>mdi-question-mark</v-icon>
@@ -7,12 +7,17 @@
     </template>
 
     <v-card>
-      <v-item-group mandatory v-model="selectedItem">
+      <v-toolbar>
+        <v-btn icon @click="dialog = false">
+          <v-icon>mdi-arrow-left</v-icon>
+        </v-btn>
+      </v-toolbar>
+      <v-item-group mandatory v-model="selectedValue">
         <v-container>
-          <v-row>
-            <v-col v-for="one of adventurers" :key="one.id" cols="3" md="4">
+          <v-row dense>
+            <v-col v-for="one of adventurers" :key="one.id" cols="12">
               <v-item v-slot="{ active, toggle }">
-                <AdventurerThumbnail :adventurer="one" :active="active" @click="toggle" />
+                <AdventurerCard :adventurer="one" :active="active" @click="toggle" />
               </v-item>
             </v-col>
           </v-row>
@@ -23,16 +28,17 @@
 </template>
 
 <script lang="ts">
-import AdventurerThumbnail from "@/components/character/AdventurerThumbnail.vue";
+import AdventurerCard from "@/components/character/AdventurerCard.vue";
 import { Character } from "@/core/character/Character";
 
 interface Data {
   localValue: Character | null;
   selectedValue: Character | null;
+  dialog: boolean;
 }
 export default {
   components: {
-    AdventurerThumbnail,
+    AdventurerCard,
   },
   props: {
     adventurers: {
@@ -41,13 +47,14 @@ export default {
     },
     value: {
       type: Object,
-      required: true,
+      required: false,
     },
   },
   data(): Data {
     return {
       localValue: this.value,
       selectedValue: null,
+      dialog: false,
     };
   },
   watch: {

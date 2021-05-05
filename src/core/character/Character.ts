@@ -2,6 +2,9 @@ export interface Character {
   id: string;
   name: string;
   faction: string;
+  class: string;
+  avatar: string;
+  level: number;
 
   life: number;
   maxLife: number;

@@ -18,9 +18,13 @@ export function attractAdventurers(state: TavernState): Character[] {
   for (let index = 0; index < num; index++) {
     const maxLife = faker.datatype.number({ min: 100, max: 200 });
     const maxMana = faker.datatype.number({ min: 100, max: 200 });
+	const id = faker.random.alphaNumeric(10);
     const one: Character = {
-      id: faker.random.alphaNumeric(10),
+      id,
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      class: faker.name.jobType(),
+      avatar: `https://i.pravatar.cc/150?t=${id}`,
+      level: faker.datatype.number({ min: 1, max: 10 }),
 
       life: faker.datatype.number(maxLife),
       maxLife,

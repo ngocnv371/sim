@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     handleHire(one: Character): void {
-      this.localValue = one;
       this.$emit("input", one);
       this.dialog = false;
     },

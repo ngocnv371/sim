@@ -1,15 +1,10 @@
 <template>
-  <v-dialog fullscreen v-model="dialog">
+  <v-dialog v-model="dialog">
     <template v-slot:activator="{ on, attrs }">
       <AdventurerThumbnail v-bind="attrs" v-on="on" :adventurer="adventurer" width="100" />
     </template>
 
     <v-card>
-      <v-toolbar>
-        <v-btn icon @click="dialog = false">
-          <v-icon>mdi-arrow-left</v-icon>
-        </v-btn>
-      </v-toolbar>
       <AdventurerCard :adventurer="adventurer">
         <v-btn text color="primary accent-4" @click="handleHire(adventurer)"> Hire $50 </v-btn>
       </AdventurerCard>

@@ -1,10 +1,7 @@
 <template>
   <v-dialog fullscreen v-model="dialog">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn v-if="!value" color="red lighten-2" dark v-bind="attrs" v-on="on">
-        <v-icon>mdi-question</v-icon>
-      </v-btn>
-      <AdventurerThumbnail v-else v-on="on" :adventurer="value" width="100" />
+      <AdventurerThumbnail v-bind="attrs" v-on="on" :adventurer="value" width="100" />
     </template>
 
     <v-card>

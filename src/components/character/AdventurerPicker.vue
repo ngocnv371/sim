@@ -4,9 +4,7 @@
       <v-btn v-if="!value" color="red lighten-2" dark v-bind="attrs" v-on="on">
         <v-icon>mdi-question</v-icon>
       </v-btn>
-      <v-btn v-else dark v-bind="attrs" v-on="on">
-        {{ value.name }}
-      </v-btn>
+      <AdventurerThumbnail v-else v-on="on" :adventurer="value" width="100" />
     </template>
 
     <v-card>
@@ -30,6 +28,7 @@
 
 <script lang="ts">
 import AdventurerCard from "@/components/character/AdventurerCard.vue";
+import AdventurerThumbnail from "@/components/character/AdventurerThumbnail.vue";
 import { Character } from "@/core/character/Character";
 
 interface Data {
@@ -39,6 +38,7 @@ interface Data {
 export default {
   components: {
     AdventurerCard,
+    AdventurerThumbnail,
   },
   props: {
     adventurers: {

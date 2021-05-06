@@ -44,13 +44,13 @@ export default {
     ...mapGetters("barrack", ["unassignedMembers"]),
   },
   methods: {
-    ...mapActions("barrack", ["join", "kick"]),
+    ...mapActions("barrack", ["addUnassignedMemberToParty", "removeMemberFromParty"]),
     handleMemberChanged(index: number, newVal: Character): void {
       const oldValue = this.party.members[index];
       if (oldValue) {
-        this.kick({ party: this.party, one: oldValue });
+        this.removeMemberFromParty({ party: this.party, member: oldValue });
       }
-      this.join({ party: this.party, index, one: newVal });
+      this.addUnassignedMemberToParty({ party: this.party, index, member: newVal });
     },
   },
 };

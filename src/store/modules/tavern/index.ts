@@ -4,7 +4,7 @@ import { ActionTree, GetterTree, Module, MutationTree } from "vuex";
 
 import { Character } from "@/core/character/Character";
 import { RootState } from "@/store/RootState";
-import { TavernState } from "@/core/tavern";
+import { TavernState } from "./TavernState";
 import faker from 'faker';
 
 function generateAdventurers(num: number): Character[] {

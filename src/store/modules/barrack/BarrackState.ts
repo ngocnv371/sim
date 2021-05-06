@@ -1,4 +1,4 @@
-import { Party } from "../character/Party";
+import { Party } from "@/core/character/Party";
 
 export interface BarrackState {
   parties: Party[];

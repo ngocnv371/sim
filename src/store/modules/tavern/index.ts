@@ -61,7 +61,7 @@ const actions: ActionTree<TavernState, RootState> = {
   },
   hire(context, one) {
     context.commit("REMOVE", one);
-    context.dispatch("barrack/hire", one);
+    context.dispatch("barrack/hire", one, { root: true });
   },
 };
 

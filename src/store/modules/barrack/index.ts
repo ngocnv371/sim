@@ -123,6 +123,9 @@ const actions: ActionTree<BarrackState, RootState> = {
   fire(context, payload) {
     context.commit("FIRE", payload);
   },
+  hire(context, payload) {
+    context.commit("HIRE", payload);
+  },
 };
 
 export const BarrackModule: Module<BarrackState, RootState> = {

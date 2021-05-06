@@ -17,6 +17,9 @@
               <v-btn text color="primary accent-4" @click="handleHire(one)"> Hire $50 </v-btn>
             </AdventurerCard>
           </v-col>
+          <v-col cols="12" v-if="!adventurers.length">
+            <v-alert color="warning"> You have nothing available! </v-alert>
+          </v-col>
         </v-row>
       </v-container>
     </v-card>

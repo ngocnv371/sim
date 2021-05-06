@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-text>
-      <div v-text="`${adventurer.class} Lv${adventurer.level}`"></div>
+      <div><JobIcon :job="adventurer.job" /> {{ adventurer.job }} Lv{{ adventurer.level }}</div>
       <p class="display-1 text--primary" v-text="adventurer.name"></p>
       <ul>
         <li>Strength: {{ adventurer.str }}</li>
@@ -42,10 +42,13 @@
 </style>
 
 <script lang="ts">
+import JobIcon from "@/components/character/JobIcon.vue";
+
 interface Data {
   reveal: boolean;
 }
 export default {
+  components: { JobIcon },
   props: {
     adventurer: {
       type: Object,

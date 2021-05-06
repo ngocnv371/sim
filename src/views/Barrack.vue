@@ -1,11 +1,17 @@
 <template>
-  <v-card>
+  <v-card flat>
     <v-app-bar>
       <v-btn icon @click="addOneParty">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-app-bar>
-    <PartyCard v-for="p of parties" :key="p.id" :party="p" />
+    <v-container>
+      <v-row dense>
+        <v-col v-for="p of parties" :key="p.id" cols="12">
+          <PartyCard :party="p" />
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 

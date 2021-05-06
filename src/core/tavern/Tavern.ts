@@ -15,14 +15,16 @@ export function removeOne(state: TavernState, one: Character) {
 export function attractAdventurers(state: TavernState): Character[] {
   const bag: Character[] = [];
   const num = 20;
+  const jobs = ["Warrior", "Guardian", "Mage", "Healer"];
   for (let index = 0; index < num; index++) {
     const maxLife = faker.datatype.number({ min: 100, max: 200 });
     const maxMana = faker.datatype.number({ min: 100, max: 200 });
     const id = faker.random.alphaNumeric(10);
+    const jobIndex = faker.datatype.number({min: 0, max: jobs.length - 1});
     const one: Character = {
       id,
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-      class: faker.name.jobType(),
+      job: jobs[jobIndex],
       avatar: `https://i.pravatar.cc/150?t=${id}`,
       level: faker.datatype.number({ min: 1, max: 10 }),
 

@@ -10,7 +10,7 @@ export const BarrackModule: Module<BarrackState, RootState> = {
   state: { parties: [] },
   getters: {
     parties(state) {
-      return state.parties;
+      return state.parties.filter(p => p.id !== barrack.UNASSIGNED_PARTY_ID);
     },
     unassigned(state) {
       return state.parties[0].members;
@@ -27,8 +27,8 @@ export const BarrackModule: Module<BarrackState, RootState> = {
     KICK(state, { party, one }) {
       barrack.kick(state, party, one);
     },
-    JOIN(state, { party, one }) {
-      barrack.join(state, party, one);
+    JOIN(state, { party, index, one }) {
+      barrack.join(state, party, index, one);
     },
   },
   actions: {
@@ -51,7 +51,7 @@ export const BarrackModule: Module<BarrackState, RootState> = {
       const party = {
         id: "initial party",
         name: "Entourage",
-        members: guys,
+        members: first,
       };
       context.commit("ADD", party);
       while (guys.length) {
@@ -65,5 +65,11 @@ export const BarrackModule: Module<BarrackState, RootState> = {
     add(context, one) {
       context.commit("ADD", one);
     },
+    join(context, payload) {
+      context.commit("JOIN", payload)
+    },
+    kick(context, payload) {
+      context.commit("KICK", payload)
+    }
   },
 };

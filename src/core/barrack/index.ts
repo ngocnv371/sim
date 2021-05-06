@@ -40,9 +40,8 @@ export function kick(state: BarrackState, party: Party, one: Character) {
   party.members = party.members.filter((m) => m.id !== one.id);
 }
 
-export function join(state: BarrackState, party: Party, one: Character) {
-  if (party.members.length > MAX_PARTY_SIZE) {
-    throw new Error('Party size exceed limit');
-  }
-  party.members.push(one);
+export function join(state: BarrackState, party: Party, index: number, one: Character) {
+  const ms = [...party.members];
+  ms[index] = one;
+  party.members = ms;
 }

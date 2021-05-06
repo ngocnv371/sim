@@ -2,7 +2,7 @@
   <v-card dark v-on="$listeners" v-bind="$attrs">
     <v-img v-if="adventurer" :src="adventurer.avatar" class="align-end">
       <div class="text--white align-center slight-shadow" v-if="adventurer">
-        <v-icon>mdi-sword</v-icon> Lv{{ adventurer.level }}
+        <JobIcon :job="adventurer.job" /> Lv{{ adventurer.level }}
       </div>
     </v-img>
     <v-img v-else src="../../assets/help.png" class="align-center"> </v-img>
@@ -16,7 +16,10 @@
 </style>
 
 <script>
+import JobIcon from "@/components/character/JobIcon.vue";
+
 export default {
+  components: { JobIcon },
   props: {
     adventurer: {
       type: Object,

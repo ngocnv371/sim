@@ -2,7 +2,7 @@ export interface Character {
   id: string;
   name: string;
   faction: string;
-  class: string;
+  job: string;
   avatar: string;
   level: number;
 

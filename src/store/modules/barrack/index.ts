@@ -12,9 +12,12 @@ export const BarrackModule: Module<BarrackState, RootState> = {
     parties(state) {
       return state.parties.filter(p => p.id !== barrack.UNASSIGNED_PARTY_ID);
     },
-    unassigned(state) {
+    unassignedMembers(state) {
       return state.parties[0].members;
     },
+    unassignedParty(state) {
+      return state.parties[0];
+    }
   },
   mutations: {
     SET_PARTIES(state, parties) {
@@ -47,7 +50,6 @@ export const BarrackModule: Module<BarrackState, RootState> = {
       while (first.length < 8) {
         first.push(guys.pop());
       }
-      guys.length = 8;
       const party = {
         id: "initial party",
         name: "Entourage",
@@ -70,6 +72,9 @@ export const BarrackModule: Module<BarrackState, RootState> = {
     },
     kick(context, payload) {
       context.commit("KICK", payload)
+    },
+    fire(context, payload) {
+      context.commit("FIRE", payload)
     }
   },
 };

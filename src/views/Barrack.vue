@@ -10,6 +10,9 @@
         <v-col v-for="p of parties" :key="p.id" cols="12">
           <PartyCard :party="p" />
         </v-col>
+        <v-col cols="12" v-if="unassignedParty">
+          <UnassignedPartyCard :party="unassignedParty" />
+        </v-col>
       </v-row>
     </v-container>
   </v-card>
@@ -18,11 +21,12 @@
 <script lang="ts">
 import { mapActions, mapGetters } from "vuex";
 import PartyCard from "@/components/character/PartyCard.vue";
+import UnassignedPartyCard from "@/components/character/UnassignedPartyCard.vue";
 
 export default {
-  components: { PartyCard },
+  components: { PartyCard, UnassignedPartyCard },
   computed: {
-    ...mapGetters("barrack", ["parties"]),
+    ...mapGetters("barrack", ["parties", "unassignedParty"]),
   },
   methods: {
     ...mapActions("barrack", ["add", "remove"]),

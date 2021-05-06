@@ -1,6 +1,6 @@
 import { Character } from "../character/Character";
 import { FACTION_NONE } from "../battle/Config";
-import { TavernState } from "./TavernState";
+import { TavernState } from "../../store/modules/tavern/TavernState";
 import faker from "faker";
 
 export function refresh(state: TavernState) {
